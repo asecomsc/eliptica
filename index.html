@@ -1,0 +1,45 @@
+<head>
+	<title>Eliptica</title>
+	<script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	
+    <script src="http://localhost/eliptica/date.format.js"></script>
+	
+	<style>
+	#uno {
+	font-size: 20px;
+	color: green;
+	}
+	#txAdd {
+	font-size: 100px;
+	color: blue;
+	}
+	</style>
+	<script>
+	  $(function () {
+		var socket = io();
+		socket.on('chat message', function(msg){
+		  miVal = $('#txAdd').text();
+		  miVal++;
+		  $('#txAdd').text(miVal);	
+		  if (miVal==$('#pasos').val()) {
+			 $('#stop').click();
+		  }		  
+		});	
+	  });
+	</script>
+	</head>
+<body>
+	<div id="miCrono">
+		<h2>Eliptica</h2>
+		<p id="uno">00:00</p>
+		<input type="button" id="start" value="start"/>	
+		<input type="button" id="stop" value="stop"/>
+		<br><br><br>
+		<p></p>
+		Cuantos Pasos<input type="text"  id="pasos">
+		<br><br><br><br>
+		<input type="button" id="btAdd" value="Add"/>
+		<p id="txAdd">0</p>
+	</div>
+ </body>

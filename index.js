@@ -3,6 +3,11 @@ $(document).ready(function() {
 	d.setHours(0,0,0,0);
 	var miInterval;
 	
+	var socket = io().connect('http://localhost:3000');
+	socket.on('chat message', function(msg){
+	  $('#messages').append($('<li>').text(msg));
+	});		
+	
 	$('#btAdd').click( function() {
 		miVal = $('#txAdd').text();
 		miVal++;
