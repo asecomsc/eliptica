@@ -1,55 +1,11 @@
 <head>
 	<title>Eliptica</title>
+	<link rel="stylesheet" type="text/css" href="http://localhost/eliptica/index.css">	
 	<script src="/socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	
     <script src="http://localhost/eliptica/date.format.js"></script>
-	
-	<style>
-	#uno {
-	font-size: 20px;
-	color: green;
-	}
-	#txAdd {
-	font-size: 100px;
-	color: blue;
-	}
-	</style>
-	<script>
-	  $(function () {
-	d = new Date();
-	d.setHours(0,0,0,0);
-	var miInterval;	  
-		var socket = io();
-		socket.on('chat message', function(msg){
-		  miVal = $('#txAdd').text();
-		  miVal++;
-		  $('#txAdd').text(miVal);	
-		  if (miVal==$('#pasos').val()) {
-			 $('#stop').click();
-		  }	
-		});	
-	$('#btAdd').click( function() {
-		miVal = $('#txAdd').text();
-		miVal++;
-		$('#txAdd').text(miVal);
-		if (miVal==$('#pasos').val()) {
-			$('#stop').click();
-		}
-	});
-	$('#start').click( function() { 
-		miInterval = setInterval(miTimer,1000);
-	});
-	function miTimer() {
-	    d.setSeconds(d.getSeconds()+1);
-	    $('#uno').text(d.format("MM:ss"));
-	}
-	$('#stop').click( function() {
-		clearInterval(miInterval);
-	});		
-	  });
-	</script>
-	</head>
+	<script src="http://localhost/eliptica/index.js"></script>	
+</head>
 <body>
 	<div id="miCrono">
 		<h2>Eliptica</h2>
