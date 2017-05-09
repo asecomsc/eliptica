@@ -9,26 +9,21 @@ $(document).ready(function() {
 	  miVal++;
 	  $('#txAdd').text(miVal);	
 	  if (miVal==$('#pasos').val()) {
-		 $('#stop').click();
+		 fin();
 	  }	
+	  if (miVal==1) {
+		 ini();
+	  }		  
 	});		
-	
-	$('#btAdd').click( function() {
-		miVal = $('#txAdd').text();
-		miVal++;
-		$('#txAdd').text(miVal);
-		if (miVal==$('#pasos').val()) {
-			$('#stop').click();
-		}
-	});
-	$('#start').click( function() { 
-		miInterval = setInterval(miTimer,1000);
-	});
+
+	function ini() {
+		miInterval = setInterval(miTimer,1000);		
+	}	
+	function fin() {
+		clearInterval(miInterval);
+	}	
 	function miTimer() {
 	    d.setSeconds(d.getSeconds()+1);
 	    $('#uno').text(d.format("MM:ss"));
 	}
-	$('#stop').click( function() {
-		clearInterval(miInterval);
-	});
 });

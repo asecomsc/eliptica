@@ -1,8 +1,18 @@
 #uno {
-	font-size: 20px;
+	font-size: 35px;
 	color: green;
-}
+    position: fixed;
+	bottom: 0;	
+    left: 900px;
+	}
 #txAdd {
-	font-size: 100px;
+	font-size: 600px;
 	color: blue;
+	margin-top: 0px;
+}
+form { 
+	padding: 3px; 
+	position: fixed; 
+	bottom: 0; 
+	width: 100%; 
 }
